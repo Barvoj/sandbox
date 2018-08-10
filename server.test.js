@@ -1,4 +1,5 @@
 const request = require('supertest');
+const expect = require('expect');
 const app = require('./server');
 
 describe('Test homepage', () => {
@@ -6,7 +7,9 @@ describe('Test homepage', () => {
     request(app)
       .get('/')
       .expect(200)
-      .expect('Hello world')
+      .expect((res) => {
+        expect(res.text).toEqual('Hello world');
+      })
       .end(done);
   });
 });
