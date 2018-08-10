@@ -8,7 +8,7 @@ describe('Test homepage', () => {
       .get('/')
       .expect(200)
       .expect((res) => {
-        expect(res.text).toEqual('Hello world');
+        expect(res.text).toContain('Hello world');
       })
       .end(done);
   });
